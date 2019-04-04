@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block fibonacci_selected_tab %} class="active" {% endblock %}
+{% block content %}
+
+   <h2>Fibonacci series</h2>
+        <div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div {% if message.tags == "error" %}
+                            class="alert alert-danger"
+                        {% elif message.tags == "success" %}
+                            class="alert alert-success"
+                        {% else %}
+                            class="alert alert-info"
+                        {% endif %}>
+                            {{ message |linebreaksbr }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+        </div>
+<div class="row">
+<div class="form-group col-sm-4">
+    <form class="form-inline col-md-12" action='{% url "fibonacci" %}' method='POST'>
+          <label for="fib_number">Enter Your Input: </label>
+          <input id="fib_number" type="number" name="fib_number" /><br><br>
+          <input type="submit">
+
+
+
+</form>
+</div>
+</div>
+
+{% if fib %}
+<div class=' col-md-11'>
+
+<table class="table table-condensed table-striped">
+<thead>
+<tr style="text-align: left;">
+<th style="border: none !important;">
+</th>
+<td><b>Fib Number</b></td>
+<td><b>Result</b></td>
+<td><b>Execution Time</b></td>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align: left;" class="">
+<td >
+</td>
+<td>{{ fib_number }}</td>
+<td>{{ fib }}</td>
+<td>{{ total_time|floatformat:4 }} <b>Secs</b></td>
+</tr>
+</tbody>
+</table>
+{% endif %}
+</div>
+
+{% endblock %}
