@@ -3,6 +3,7 @@ from django.test import TestCase
 # Create your tests here.
 from numpy import matrix
 import os
+import math
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fibonacci.settings")
 
 import unittest
@@ -10,8 +11,11 @@ import unittest
 class TestFibonacciFunctions(unittest.TestCase):
     def test_fibonacci(self):
         expected_result = 8
-        fib = ((matrix([[1, 1], [1, 0]])) ** (int(6) - 1))[0,0]
-        self.assertEqual(expected_result,fib, "Case1 unit test")
+        n=6
+        PHI = (1 + math.sqrt(5)) / 2
+        SQRT5 = math.sqrt(5)
+        fib = round(math.pow(PHI, int(n)) / SQRT5)
+        self.assertEqual(expected_result,fib, "fibonacci unit test")
 
 if __name__ == '__main__' :
     unittest.main()

@@ -11,6 +11,6 @@ class FibonaaciSerializer(serializers.ModelSerializer):
 
     def validate_fib_number(self, value):
         if value < 1:
-            raise serializers.ValidationError("Value should be greater than zero")
+            raise serializers.ValidationError("Input Value must be greater than zero")
 
         return value

@@ -5,8 +5,6 @@ from django.db import models
 class FibonacciNumbers(models.Model):
     fib_number = models.IntegerField()
     fib_result = models.IntegerField()
-    time_field = models.DateTimeField(blank=True)
-
 
     class Meta:
         app_label = 'fib_series'
@@ -15,6 +13,6 @@ class FibonacciNumbers(models.Model):
         return u'{0}'.format(self.fib_number)
 
     def __str__(self):
-        return self.fib_number
+        return u'{0}'.format(self.fib_number)
 
 
