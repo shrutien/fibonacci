@@ -15,7 +15,6 @@ __pycache__/
 *.docs
 *.docx
 *.csv
-*.txt
 # ignore generated image files
 *.svg
 *.png
